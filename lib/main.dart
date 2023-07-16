@@ -5,6 +5,7 @@ import 'package:flutter_clean_architecture/features/daily_news/presentation/bloc
 import 'package:flutter_clean_architecture/features/daily_news/presentation/bloc/article/remote/remote_article_event.dart';
 import 'package:flutter_clean_architecture/injection_container.dart';
 
+import 'config/routes/routes.dart';
 import 'features/daily_news/presentation/pages/home/daily_news.dart';
 
 Future<void> main() async {
@@ -22,10 +23,10 @@ class MyApp extends StatelessWidget {
     return BlocProvider<RemoteArticlesBloc>(
       create: (context) => sl()..add(const GetArticles()),
       child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: theme(),
-        home: const DailyNews(),
-      ),
+          debugShowCheckedModeBanner: false,
+          theme: theme(),
+          onGenerateRoute: AppRoutes.onGenerateRoutes,
+          home: const DailyNews()),
     );
   }
 }

@@ -33,7 +33,7 @@ class _NewsApiService implements NewsApiService {
                 .compose(_dio.options, '/top-headlines',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    List<ArticleModel> value = _result.data!['articles']
+    List<ArticleModel> value = _result.data?['articles']
         .map<ArticleModel>(
             (dynamic i) => ArticleModel.fromJson(i as Map<String, dynamic>))
         .toList();

@@ -19,12 +19,15 @@ Future<void> initializeDependencies() async {
       await $FloorAppDatabase.databaseBuilder('app_database.db').build();
   sl.registerSingleton<AppDatabase>(database);
 
+  // Dio
   sl.registerSingleton<Dio>(Dio());
 
+  // Dependencies
   sl.registerSingleton<NewsApiService>(NewsApiService(sl()));
 
   sl.registerSingleton<ArticleRepository>(ArticleRepositoryImpl(sl(), sl()));
 
+  //UseCases
   sl.registerSingleton<GetArticleUseCase>(GetArticleUseCase(sl()));
 
   sl.registerSingleton<GetSavedArticleUseCase>(GetSavedArticleUseCase(sl()));
@@ -33,8 +36,9 @@ Future<void> initializeDependencies() async {
 
   sl.registerSingleton<RemoveArticleUseCase>(RemoveArticleUseCase(sl()));
 
+  //Blocs
   sl.registerFactory<RemoteArticlesBloc>(() => RemoteArticlesBloc(sl()));
 
-  sl.registerFactory<LocalArticleBloc>(() => LocalArticleBloc(sl(),sl(),sl()));
-
+  sl.registerFactory<LocalArticleBloc>(
+      () => LocalArticleBloc(sl(), sl(), sl()));
 }
