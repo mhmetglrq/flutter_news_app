@@ -21,6 +21,7 @@ class RemoteArticlesBloc
       );
     }
     if (dataState is DataFailed) {
+      print(dataState.exception!.message);
       emit(
         RemoteArticlesError(dataState.exception!),
       );

@@ -3,4 +3,9 @@ import 'package:flutter_clean_architecture/features/daily_news/domain/entities/a
 
 abstract class ArticleRepository {
   Future<DataState<List<ArticleEntity>>> getNewArticles();
+
+  //DB
+  Future<List<ArticleEntity>> getSavedArticles();
+  Future<void> saveArticle(ArticleEntity article);
+  Future<void> removeArticle(ArticleEntity article);
 }

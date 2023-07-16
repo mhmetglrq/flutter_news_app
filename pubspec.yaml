@@ -21,11 +21,11 @@ dependencies:
   retrofit: ^4.0.1
   flutter_hooks: ^0.19.0
   cached_network_image: ^3.2.3
+  ionicons: ^0.2.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
 
   flutter_lints: ^2.0.0
   retrofit_generator: ^7.0.8
@@ -41,5 +41,5 @@ flutter:
         - asset: assets/fonts/muli/Muli.ttf
         - asset: assets/fonts/muli/Muli-Bold.ttf
           weight: 700
-        - asset: assets/fonts/muli/Multi-Light.ttf
+        - asset: assets/fonts/muli/Muli-Light.ttf
           weight: 300
